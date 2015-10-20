@@ -1,17 +1,18 @@
 "use strict";
-let events = require("events");
+let Events = require("events").EventEmitter;
+
 //*****************************************
 function Publisher_NewsPaper(name){
-	this.emiter = new events.EventEmitter();
+	this.emiter = new Events;
 	this.name=name;
 	this.money=0;
 	this.info=function(){
-		console.log("I am a NewsPaper publisher called " + this.name);
+		console.log("PUB: I am a NewsPaper publisher called " + this.name);
 		//need to emit (publish) an event has happened
 		(this.emiter).emit("info",this.name);
 	}
 	this.pressRelease=function(words){
-		console.log("Press Release from the publisher called " + this.name + " ´"+words+"´");
+		console.log("PUB: Press Release from the publisher called " + this.name + " ´"+words+"´");
 		(this.emiter).emit("pressRelease",this);
 	}
 	this.addMoney=function(amount){
@@ -27,13 +28,13 @@ function Subscriber(publisher){
 	
 	//add a sub listener (.on) to the pub eventEmiter
 	(publisher.emiter).on("info",function(who){
-		console.log("subcriber called to publisher: ·" + who + "·");
+		console.log("SUB: subcriber called to publisher: ·" + who + "·");
 	});
 	(publisher.emiter).on("pressRelease",function(who){
-		console.log("pressRelease -subcriber called to publisher: ·" + who.name + "·");
+		console.log("SUB: pressRelease -subcriber called to publisher: ·" + who.name + "·");
 	});
 	publisher.emiter.on("addMoney",function(who){
-		console.log("Money update for " + who.name + ", new total is " + who.money);
+		console.log("SUB: Money update for " + who.name + ", new total is " + who.money);
 	});
 
 }
