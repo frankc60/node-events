@@ -1,4 +1,5 @@
-var events = require("events");
+"use strict";
+let events = require("events");
 //*****************************************
 function Publisher_NewsPaper(name){
 	this.emiter = new events.EventEmitter();
