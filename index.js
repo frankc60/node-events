@@ -40,9 +40,9 @@ function Subscriber(publisher){
 }
 //*****************************************
 
-var paper1 = new Publisher_NewsPaper("The Press"); 
-var paper2 = new Publisher_NewsPaper("The Outlook"); 
-var paper3 = new Publisher_NewsPaper("The NewEarth"); 
+let paper1 = new Publisher_NewsPaper("The Press"); 
+let paper2 = new Publisher_NewsPaper("The Outlook"); 
+let paper3 = new Publisher_NewsPaper("The NewEarth"); 
 
 
 
